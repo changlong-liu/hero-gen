@@ -68,8 +68,7 @@ class CliParser(AzCli):
                     formatter = self.output.get_formatter(output_type)
                     self.output.out(cmd_result, formatter=formatter, out_file=out_file)
 
-                print("#####")
-                print(self.invocation.expanded_arg, self.invocation.cmd_copy)
+                # print(self.invocation.expanded_arg, self.invocation.cmd_copy)
         except KeyboardInterrupt as ex:
             exit_code = 1
             self.result = CommandResultItem(None, error=ex, exit_code=exit_code)
@@ -91,7 +90,6 @@ class CliParser(AzCli):
 from azure.cli.core.commands import AzCliCommandInvoker
 class AzCliCommandParseInvoker(AzCliCommandInvoker):
     def _run_job(self, expanded_arg, cmd_copy):
-        print("####")
         self.params = self._filter_params(expanded_arg)
         self.expanded_arg = expanded_arg
         self.cmd_copy = cmd_copy

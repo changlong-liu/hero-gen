@@ -172,7 +172,6 @@ def main():
     subcommands = []
     for line in content:
         subcommands.append(parse_command(line.split()[1:]))
-        print(subcommands[-1])
 
     gen_extension()
     gen_custom(subcommands)
