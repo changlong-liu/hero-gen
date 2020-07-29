@@ -1,0 +1,2 @@
+az network vnet create --resource-group test-changlong --name myVnet --subnet-name mySubnet
+az network nsg create --resource-group test-changlong --name myNetworkSecurityGroup
