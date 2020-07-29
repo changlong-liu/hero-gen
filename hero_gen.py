@@ -112,10 +112,11 @@ def gen_custom(subcommands):
 """.format(package=subcommand[0].split('#')[0], func=subcommand[1], params=", ".join(params), result_variable=result_variable)
         filedata += content
 
-    filedata += "    return {\n"
-    for result in results:
-        filedata += "        \"{result}\": {result},\n".format(result=result)
-    filedata += "    }"
+    # filedata += "    return {\n"
+    # for result in results:
+    #     filedata += "        \"{result}\": {result},\n".format(result=result)
+    # filedata += "    }"
+    filedata += "    return {}\n".format(results[-1])
     
     # Write the file out again
     with open(file_path, 'w') as file:
