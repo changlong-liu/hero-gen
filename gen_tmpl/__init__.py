@@ -9,6 +9,7 @@
 # --------------------------------------------------------------------------
 
 from azure.cli.core import AzCommandsLoader
+from azure.cli.core.profiles import ResourceType
 from azext_{hero_name}._help import helps  # pylint: disable=unused-import
 try:
     from azext_{hero_name}.manual._help import helps  # pylint: disable=reimported
@@ -25,7 +26,9 @@ class {hero_name}ManagementClientCommandsLoader(AzCommandsLoader):
             operations_tmpl='azext_{hero_name}.custom#{}',
             client_factory=cf_{hero_name}_cl)
         parent = super({hero_name}ManagementClientCommandsLoader, self)
-        parent.__init__(cli_ctx=cli_ctx, custom_command_type={hero_name}_custom)
+        parent.__init__(cli_ctx=cli_ctx,
+                        custom_command_type={hero_name}_custom,
+                        resource_type=ResourceType.MGMT_NETWORK)
 
     def load_command_table(self, args):
         from azext_{hero_name}.commands import load_command_table
